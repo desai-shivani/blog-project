@@ -1,0 +1,27 @@
+{% extends "blog_app/base.html" %}
+{% block content %}
+
+
+
+<div class="col-md-6">
+
+    
+    
+        <!-- Blog Post -->
+        <div class="card mb-4" style="margin-top:50px">
+        
+          <div class="card-body">
+                <form method="POST">
+                        {% csrf_token %}
+                        <p>Are you sure you want to delete Post : {{ object }} ?</p>
+                        
+                        <input type="submit" class="btn btn-danger" value="Delete">
+                        <button onclick="window.history.back();" class="btn btn-dark" type="button">Cancel</button>
+
+                    </form>
+        </div>
+        </div>
+        
+      </div>
+
+{% endblock %}

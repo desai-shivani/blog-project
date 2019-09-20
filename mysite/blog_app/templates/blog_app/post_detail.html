@@ -1,0 +1,33 @@
+{% extends "blog_app/base.html" %}
+{% block content %}
+
+
+
+
+<!-- Blog Entries Column -->
+<div class="col-md-8">
+
+    <!-- Blog Post -->
+    <div class="card mb-4">
+    
+      <div class="card-body">
+        <h2 class="card-title">{{object.title}}</h2>
+        
+        <div class="card-footer text-muted">
+            Posted on <span class="font-weight-bold">{{object.date|date:"D d M Y"}}</span> by <span class="font-weight-bold">{{object.author}}</span>
+            
+          </div>
+        <p class="card-text">{{object.body|linebreaks}}</p>
+      </div>
+      <a href="{% url 'update-post' pk=object.pk %}" class="btn btn-primary">
+        <i class="far fa-edit"></i><span> Edit Post</span>
+      </a>
+      <a href="{% url 'delete-post' pk=object.pk %}" class="btn btn-secondary">
+        <i class="far fa-trash-alt"></i><span> Delete Post</span>
+      </a>
+      
+    </div>
+
+  </div>
+
+  {% endblock %}
